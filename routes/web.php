@@ -25,7 +25,7 @@ Route::get('/about', function () {
         "title" => "About",
         "nama" => "Jeffry Kurniawan Visnu",
         "email" => "safridaida1@gmail.com",
-        "gambar" => "mopet.jpg"
+        "gambar" => "JKV.jpeg"
     ]);
 });
 
