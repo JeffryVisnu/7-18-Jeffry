@@ -21,24 +21,31 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about',[
+    return view ('about', [
         "title" => "About",
-        "nama" => "Jeffry Kurniawan Visnu",
-        "email" => "safridaida1@gmail.com",
-        "gambar" => "JKV.jpeg"
+        "nama" => "Evrilia Elsyabila",
+        "email" => "3103120077@student.smktelkom-pwt.sch.id",
+        "gambar" => "laii.jpg"
     ]);
 });
 
-Route::get('/gallery', function() {
-    return view('gallery', [
+Route::get('/gallery', function () {
+    return view ('gallery', [
         "title" => "Gallery"
     ]);
 });
 
-Route::resource('/contacts', ContactController::class); 
+//Route::resource('/contacts', ContactController::class);
+Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+Route::post('/contacts/store', [ContactController::class, 'store'])->name('contacts.store');
+
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/contacts/index', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+    Route::post('/contacts/{id}/update', [ContactController::class, 'update'])->name('contacts.update');
+    Route::get('/contacts/{id}/destroy', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
 });
