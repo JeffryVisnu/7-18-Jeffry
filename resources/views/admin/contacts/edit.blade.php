@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Evrilia | Data Contacts')
+@section('title', 'Jeffry | Data Contacts')
 @section('content')
 <div class="main-content">
                 <div class="section_content section_content--p30">
